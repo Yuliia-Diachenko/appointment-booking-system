@@ -1,0 +1,20 @@
+[
+    {
+      "client": "60d0fe4f5311236168a109ca",
+      "business": "60d0fe4f5311236168a109cb",
+      "date": "2025-01-20T14:00:00Z",
+      "status": "scheduled"
+    },
+    {
+      "client": "60d0fe4f5311236168a109cc",
+      "business": "60d0fe4f5311236168a109cb",
+      "date": "2025-01-21T16:30:00Z",
+      "status": "cancelled"
+    },
+    {
+      "client": "60d0fe4f5311236168a109ca",
+      "business": "60d0fe4f5311236168a109cd",
+      "date": "2025-01-22T10:00:00Z",
+      "status": "scheduled"
+    }
+  ]

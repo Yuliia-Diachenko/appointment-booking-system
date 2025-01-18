@@ -1,0 +1,23 @@
+[
+    {
+      "name": "Anna Ivanova",
+      "email": "anna.ivanova@example.com",
+      "password": "passw0rd",
+      "userType": "client",
+      "bookings": ["60d0fe4f5311236168a109e1", "60d0fe4f5311236168a109e2"]
+    },
+    {
+      "name": "Boris Petrov",
+      "email": "boris.petrov@example.com",
+      "password": "myp@ssw0rd",
+      "userType": "business",
+      "bookings": ["60d0fe4f5311236168a109e3"]
+    },
+    {
+      "name": "Katya Smirnova",
+      "email": "katya.smirnova@example.com",
+      "password": "secur3pass",
+      "userType": "client",
+      "bookings": []
+    }
+  ]
