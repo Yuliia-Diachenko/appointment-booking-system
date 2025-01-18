@@ -1,4 +1,4 @@
-# Meet Mate System
+# Appointment Booking System
 
 ## Description
 
