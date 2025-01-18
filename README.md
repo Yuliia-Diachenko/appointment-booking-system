@@ -1,77 +1,92 @@
-MeetMate System
-A comprehensive appointments booking system built with MERN stack.
+# Meet Mate System
 
-Features
-User Management: Create, edit, delete, and view users of different types (client, business).
+## Description
 
-Appointment Booking: Clients can view business users and book appointments with them.
+This project is a backend for a comprehensive appointments booking system built with MERN stack.
 
-Booking Management: Clients can view, edit, and cancel their bookings.
 
-Technologies Used
+1. **Clone the repository:**
 
-Back End: Node.js, Express.js
-Database: MongoDB
+```sh git clone https://github.com/Yuliia-Diachenko/appointment-booking-system/ ```
 
-Setup
-Clone the repository:
+2. **Install dependencies:**
 
-bash
-git clone https://github.com/Yuliia-Diachenko/appointment-booking-system
-cd appointment-booking-system
-Install dependencies:
+```sh npm install ```
 
-bash
-npm install
-Set up environment variables: Create a .env file in the root of your project and add the necessary environment variables.
+## Usage
 
-Start the development server:
+### Development
 
-bash
-npm run dev
-API Endpoints
-Users
-GET /users/ - Get all users
+ 1. **Start the local development server:**
 
-GET /users/:userId - Get user by ID
+ ```sh npm run dev ```
 
-POST /users/ - Create new user
+ 2. **Start the MongoDB server:**
 
-DELETE /users/:userId - Delete user by ID
+ Ensure the MongoDB server is running and the connection is configured in `src/config.js`.
 
-PUT /users/:userId - Upsert (create/update) user by ID
+ 
+### Production
 
-PATCH /users/:userId - Edit user by ID
+1. **Start in production mode:**
 
-Bookings
-GET /bookings/ - Get all bookings
+```sh npm start ```
 
-GET /bookings/:bookingId - Get booking by ID
+## The database created in Mongodb has the following endpoints:
 
-POST /bookings/ - Create new booking
+ - For Users collection
+ - 
+       - GET: /users                        - to receive all users                      s
+       - GET: /users/:userId                - to receive user by ID
+       - POST: /users                       - create new user
+       - DELETE: /users/:userId             - to delete user by id
+       - PUT: /users/:userId                - to upsert user by id
+       - PATCH: /users/:userId              - to update user by id
 
-DELETE /bookings/:bookingId - Delete booking by ID
+ - For Bookings collection
+ - 
+       - GET: /bookings                     - to receive all bookings
+       - GET: /bookings/:bookingId          - to receive bookings by id
+       - POST: /bookings                    - to add a new Termal power plant
+       - DELETE: /bookings/:bookingId       - to delete bookings by id
+       - PUT: /bookings/:bookingId          - to upsert bookings by id
+       - PATCH: /bookings/:bookingId        - to update bookings by id
+  
 
-PUT /bookings/:bookingId - Upsert (create/update) booking by ID
+# We welcome contributions to the project! Please create pull requests and open issues for discussion.
 
-PATCH /bookings/:bookingId - Edit booking by ID
+## License
 
-Directory Structure
-plaintext
-.
-├── controllers      # API endpoint functions
-├── middlewares      # Custom express middlewares
-├── models           # Mongoose models
-├── routes           # Express routes
-├── utils            # Utility functions
-└── validation       # Request validation schemas
-Deployment
-Deploy on Heroku:
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details. ---
 
-Set up the Heroku CLI and log in.
+## Contact
+ - **Author:** Yuliia Diachenko
+ - **Email:**  y.diachenko@meta.ua
+ - **GitHub:** https://github.com/Yuliia-Diachenko
 
-Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes. If you find a bug or have a feature request, please open an issue.
+# Features
+  User Management: Create, edit, delete, and view users of different types (client, business).
 
-License
-This project is licensed under the MIT License.
+  Appointment Booking: Clients can view business users and book appointments with them.
+
+  Booking Management: Clients can view, edit, and cancel their bookings.
+
+# Technologies Used
+
+  - Back End: Node.js, Express.js
+  - Database: MongoDB
+
+# Directory Structure
+
+- controllers     - # API endpoint functions
+- middlewares     - # Custom express middlewares
+- models          - # Mongoose models
+- routes          - # Express routes
+- utils           - # Utility functions
+- validation      - # Request validation schemas
+
+
+## Contributing
+  Contributions are welcome! Please fork the repository and create a pull request with your changes. If you   find a bug or have a feature request, please open an issue.
+
+
