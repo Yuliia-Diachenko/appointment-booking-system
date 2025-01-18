@@ -1,8 +1,34 @@
 import { UsersCollection } from '../db/models/users.js';
+import { calculatePaginationData } from '../utils/calculatePaginationData.js';
+import { SORT_ORDER } from '../constants/index.js';
 
-export const getAllUsers = async () => {
-  const users = await UsersCollection.find();
-  return users;
+export const getAllUsers = async ({
+  page = 1,
+  perPage = 10,
+  sortOrder = SORT_ORDER.ASC,
+  sortBy = '_id',
+  filter = {},
+}) => {
+  const limit = perPage;
+  const skip = (page - 1) * perPage;
+  const usersQuery = UsersCollection.find();
+  if (filter.userType) {
+    usersQuery.where('userType').equals(filter.userType);
+  }
+
+  const [ usersCount, users ] = await Promise.all([
+    UsersCollection.find().merge(usersQuery).countDocuments(),
+    usersQuery
+      .skip(skip)
+      .limit(limit)
+      .sort({ [sortBy]: sortOrder })
+      .exec(),
+  ]);
+  const paginationData = calculatePaginationData(usersCount, perPage, page);
+  return {
+    data: users,
+    ...paginationData,
+  }
 };
 
 export const getUserById = async (userId) => {

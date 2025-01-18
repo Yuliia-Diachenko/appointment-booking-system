@@ -1,9 +1,20 @@
 import { getAllUsers, getUserById, createUser, deleteUser, updateUser } from "../services/users.js";
 import createHttpError from 'http-errors';
+import { parsePaginationParams } from '../utils/parsePaginationParams.js';
+import { parseSortParams } from '../utils/parseSortParams.js';
+import { parseFilterParams } from '../utils/parseFilterParams.js';
 
 export const getUsersController = async (req, res) => {
-
-    const users = await getAllUsers();
+  const { page, perPage } = parsePaginationParams(req.query);
+  const { sortBy, sortOrder } = parseSortParams(req.query);
+  const filter = parseFilterParams(req.query);
+    const users = await getAllUsers({
+      page,
+      perPage,
+      sortBy,
+      sortOrder,
+      filter,
+    });
 
     res.json({
       status: 200,
@@ -51,7 +62,7 @@ export const getUsersController = async (req, res) => {
 
   export const upsertUserController = async (req, res) => {
     const { userId } = req.params;
-    const result = await updateUser(usertId, req.body, {
+    const result = await updateUser(userId, req.body, {
       upsert: true,
     });
 

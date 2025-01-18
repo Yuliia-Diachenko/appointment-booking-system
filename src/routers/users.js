@@ -7,19 +7,22 @@ import { getUsersController,
         patchUserController
 } from "../controllers/users.js";
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
+import { validateBody } from '../middlewares/validateBody.js';
+import { isValidId } from '../middlewares/isValidId.js';
+import { createUserSchema } from "../validation/users.js";
 
 const router = Router();
 
-router.get('/users', ctrlWrapper(getUsersController));
+router.get('/', ctrlWrapper(getUsersController));
 
-router.get('/users/:userId', ctrlWrapper(getUserByIdController));
+router.get('/:userId', isValidId, ctrlWrapper(getUserByIdController));
 
-router.post('/users', ctrlWrapper(createUserController));
+router.post('/', validateBody(createUserSchema), ctrlWrapper(createUserController));
 
-router.delete('/users/:userId', ctrlWrapper(deleteUserController));
+router.delete('/:userId', isValidId, ctrlWrapper(deleteUserController));
 
-router.put('/users/:userId', ctrlWrapper(upsertUserController));
+router.put('/:userId', isValidId, ctrlWrapper(upsertUserController));
 
-router.patch('/users/:userId', ctrlWrapper(patchUserController));
+router.patch('/:userId', isValidId, ctrlWrapper(patchUserController));
 
 export default router;
