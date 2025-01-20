@@ -7,6 +7,10 @@ import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 
 const PORT = Number(env('PORT', '3000'));
+const cors = require('cors');
+const corsOptions = { origin: '*',
+methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+allowedHeaders: ['Content-Type', 'Authorization'] };
 
 export default async function startServer() {
 
