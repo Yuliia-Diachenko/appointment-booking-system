@@ -5,6 +5,6 @@ import bookingRouter from './bookings.js';
 const router = Router();
 
 router.use('/users/', usersRouter);
-router.use('/booking', bookingRouter);
+router.use('/bookings/', bookingRouter);
 
 export default router;
